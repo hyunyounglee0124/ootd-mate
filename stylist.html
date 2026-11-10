@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 코디 추천 | 옷장메이트</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo"><img src="images/favicon.svg" alt="" width="28" height="28">옷장메이트</a>
+    <div class="header-actions">
+      <button class="theme-btn" type="button" aria-label="다크 모드 전환">🌙</button>
+      <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false">≡</button>
+    </div>
+    <nav class="nav">
+      <a href="index.html">홈</a>
+      <a href="about.html">서비스 소개</a>
+      <a href="stylist.html">AI 코디 추천</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p class="eyebrow">AI STYLIST</p>
+      <h1>AI 코디 추천</h1>
+      <p class="lead">조건을 입력하면 AI가 오늘의 코디 3가지를 추천해 드려요.</p>
+
+      <div class="stylist-layout">
+        <!-- 입력 폼 -->
+        <form id="stylist-form" class="card" novalidate>
+          <!-- 안내 메시지 (빈 입력 / 오류 / 지연) -->
+          <p id="message" class="message" role="status" aria-live="polite" hidden></p>
+
+          <!-- 오늘 날씨 자동 입력 (Open-Meteo 무료 날씨 API) -->
+          <div class="weather-box">
+            <p class="weather-title">🌤️ 오늘 날씨 자동 입력</p>
+            <div class="weather-row">
+              <select id="city" aria-label="지역 선택">
+                <option value="seoul">서울</option>
+                <option value="incheon">인천</option>
+                <option value="suwon">수원</option>
+                <option value="daejeon">대전</option>
+                <option value="daegu">대구</option>
+                <option value="gwangju">광주</option>
+                <option value="busan">부산</option>
+                <option value="ulsan">울산</option>
+                <option value="changwon">창원</option>
+                <option value="jinju">진주</option>
+                <option value="jeju">제주</option>
+                <option value="here">📍 내 위치</option>
+              </select>
+              <button type="button" id="weather-btn" class="btn btn-line btn-small">다시 불러오기</button>
+            </div>
+            <p id="weather-status" class="weather-status">오늘 날씨를 불러오는 중…</p>
+          </div>
+
+          <label for="temperature">오늘 기온(℃) <span class="required">*</span></label>
+          <input type="number" id="temperature" placeholder="예: 12" min="-30" max="45" step="1">
+
+          <label for="weather">날씨 <span class="required">*</span></label>
+          <select id="weather">
+            <option value="">선택해 주세요</option>
+            <option>맑음</option>
+            <option>흐림</option>
+            <option>비</option>
+            <option>눈</option>
+            <option>바람 강함</option>
+            <option>미세먼지</option>
+          </select>
+
+          <label for="schedule">오늘 일정</label>
+          <select id="schedule">
+            <option value="">선택 안 함</option>
+            <option>등교</option>
+            <option>조별 발표</option>
+            <option>데이트</option>
+            <option>운동</option>
+            <option>여행</option>
+            <option>알바</option>
+          </select>
+
+          <label for="style">원하는 스타일</label>
+          <select id="style">
+            <option value="">선택 안 함</option>
+            <option>캐주얼</option>
+            <option>미니멀</option>
+            <option>스트릿</option>
+            <option>단정한</option>
+            <option>러블리</option>
+          </select>
+
+          <label for="color">좋아하는 색</label>
+          <input type="text" id="color" placeholder="예: 네이비, 베이지" maxlength="20">
+
+          <label for="request">추가 요청</label>
+          <textarea id="request" placeholder="예: 많이 걸어야 해요 / 치마는 싫어요" maxlength="300"></textarea>
+          <p id="counter" class="counter">0 / 200</p>
+
+          <button type="submit" id="submit-btn" class="btn btn-full">AI 코디 추천받기</button>
+        </form>
+
+        <!-- 결과 -->
+        <div>
+          <div id="loading" class="loading" hidden>
+            <span class="spinner" aria-hidden="true"></span>
+            <p>AI가 옷장을 뒤지는 중… 👕</p>
+          </div>
+          <div id="result" class="result">
+            <div class="empty">
+              <p class="empty-icon">🧥</p>
+              <p>왼쪽(모바일은 위쪽)에 조건을 입력하면<br>여기에 코디 3가지가 나와요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 최근 추천 기록 (브라우저에만 저장) -->
+    <section id="history-section" hidden>
+      <div class="history-head">
+        <h2>최근 추천 기록</h2>
+        <button type="button" id="clear-history" class="btn btn-line btn-small">기록 지우기</button>
+      </div>
+      <ul id="history" class="history"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 옷장메이트 · AI 추천은 참고용이에요</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/stylist.js"></script>
+</body>
+</html>

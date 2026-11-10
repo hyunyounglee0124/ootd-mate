@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>서비스 소개 | 옷장메이트</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo"><img src="images/favicon.svg" alt="" width="28" height="28">옷장메이트</a>
+    <div class="header-actions">
+      <button class="theme-btn" type="button" aria-label="다크 모드 전환">🌙</button>
+      <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false">≡</button>
+    </div>
+    <nav class="nav">
+      <a href="index.html">홈</a>
+      <a href="about.html">서비스 소개</a>
+      <a href="stylist.html">AI 코디 추천</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <p class="eyebrow">ABOUT</p>
+      <h1>옷장메이트를 만든 이유</h1>
+      <p class="lead">아침마다 날씨 앱 한 번, 옷장 한 번 번갈아 보다가 지각할 뻔한 적 있나요? 옷장메이트는 그 5분을 1분으로 줄이려고 만들었어요.</p>
+    </section>
+
+    <section>
+      <h2>이용 방법</h2>
+      <div class="features">
+        <div class="card">
+          <h3>1. 날씨 입력</h3>
+          <p>휴대폰 날씨 앱에서 본 오늘 기온과 날씨를 입력해요.</p>
+        </div>
+        <div class="card">
+          <h3>2. 일정·취향 선택</h3>
+          <p>오늘 일정, 원하는 스타일, 좋아하는 색을 골라요. (선택)</p>
+        </div>
+        <div class="card">
+          <h3>3. 코디 확인</h3>
+          <p>상의, 하의, 아우터, 신발 조합과 추천 이유를 확인해요.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>이럴 때 써 보세요</h2>
+      <ul class="check-list">
+        <li>일교차가 큰 환절기 아침</li>
+        <li>조별 발표처럼 단정해야 하는 날</li>
+        <li>갑자기 비 소식이 있는 날</li>
+        <li>데이트나 약속이 있는 날</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>어떻게 만들었나요?</h2>
+      <div class="flow">
+        <div class="flow-step"><strong>화면</strong><span>HTML · CSS · JavaScript</span></div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-step"><strong>서버</strong><span>Vercel 서버리스 함수 (Python)</span></div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-step"><strong>AI</strong><span>Claude API (코디세이)</span></div>
+      </div>
+      <p class="muted">API 키는 서버의 환경 변수에만 저장되어 브라우저에 노출되지 않아요.</p>
+      <a href="stylist.html" class="btn">AI 코디 추천받기</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 옷장메이트 · AI 추천은 참고용이에요</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

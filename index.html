@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>옷장메이트 | 오늘 뭐 입지?</title>
+  <meta name="description" content="기온과 날씨, 일정을 입력하면 AI가 오늘의 코디 3가지를 추천해 주는 서비스">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo"><img src="images/favicon.svg" alt="" width="28" height="28">옷장메이트</a>
+    <div class="header-actions">
+      <button class="theme-btn" type="button" aria-label="다크 모드 전환">🌙</button>
+      <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false">≡</button>
+    </div>
+    <nav class="nav">
+      <a href="index.html">홈</a>
+      <a href="about.html">서비스 소개</a>
+      <a href="stylist.html">AI 코디 추천</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">AI OUTFIT MATE</p>
+        <h1>오늘 뭐 입지?<br>날씨만 알려 주세요.</h1>
+        <p class="lead">기온, 날씨, 오늘 일정만 입력하면 AI가 상의·하의·아우터·신발까지 맞춘 코디 3가지를 이유와 함께 추천해 드려요.</p>
+        <div class="hero-buttons">
+          <a href="stylist.html" class="btn">AI 코디 추천받기</a>
+          <a href="about.html" class="btn btn-line">어떻게 쓰나요?</a>
+        </div>
+      </div>
+      <div class="hero-tag" aria-hidden="true">
+        <span class="tag-hole"></span>
+        <p class="tag-label">TODAY'S OOTD</p>
+        <p class="tag-temp">12℃ · 맑음</p>
+        <ul>
+          <li>상의 · 니트</li>
+          <li>하의 · 슬랙스</li>
+          <li>아우터 · 트렌치코트</li>
+          <li>신발 · 로퍼</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="card">
+        <h3>🌡️ 날씨 맞춤</h3>
+        <p>기온에 맞는 옷 두께, 비·눈 오는 날엔 방수 신발까지 챙겨 줘요.</p>
+      </div>
+      <div class="card">
+        <h3>📅 일정 반영</h3>
+        <p>조별 발표, 데이트, 운동처럼 오늘 할 일에 어울리는 분위기로 골라요.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 취향 반영</h3>
+        <p>좋아하는 색과 스타일을 넣으면 나다운 코디를 추천해요.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 옷장메이트 · AI 추천은 참고용이에요</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
