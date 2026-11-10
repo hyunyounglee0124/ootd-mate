@@ -5,8 +5,8 @@
 
 | 구분 | 링크 |
 |---|---|
-| 🌐 배포 URL | https://(내-프로젝트).vercel.app ← **배포 후 실제 주소로 바꾸기** |
-| 💻 GitHub | https://github.com/(내-아이디)/ootd-mate ← **내 저장소 주소로 바꾸기** |
+| 🌐 배포 URL | 배포 후 추가 예정 |
+| 💻 GitHub | [hyunyounglee0124/ootd-mate](https://github.com/hyunyounglee0124/ootd-mate) |
 | 📄 서비스 기획서 | [docs/서비스_기획서.md](docs/서비스_기획서.md) |
 | 🖼️ 스크린샷 | [docs/screenshots/](docs/screenshots/) |
 
