@@ -1,6 +1,7 @@
 # 👕 옷장메이트 (OOTD Mate)
 
 > **오늘 날씨에 맞춰 AI가 코디 3가지를 추천해 주는 웹 서비스**
+>
 > 추천 페이지를 열면 오늘 기온과 날씨가 자동으로 채워져요. 일정, 스타일, 좋아하는 색을 고르면 AI(Claude)가 상의·하의·아우터·신발 조합을 **이유와 함께** 추천해요.
 
 | 구분 | 링크 |
@@ -195,6 +196,7 @@ ootd-mate/
 ├── .env.example            # 환경 변수 예시 (진짜 키 없음, GitHub에 올라감)
 ├── .env                    # 진짜 키를 넣는 파일 (GitHub에 안 올라감)
 ├── .gitignore              # .env 등 GitHub에 올리지 않을 파일 목록
+├── vercel.json             # Vercel 설정: Framework=Other 고정, 함수 최대 30초
 ├── .vercelignore           # 배포할 때 뺄 파일 (dev_server.py, tests, docs)
 ├── dev_server.py           # 내 컴퓨터에서 실행하는 테스트 서버 (배포 안 함)
 ├── .vscode/
@@ -502,7 +504,8 @@ GET https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.978
 | 11 | (OpenAI 방식일 때) `gpt-5-mini` 답이 빈칸으로 올 수 있음 | gpt-5 계열은 "생각하는 토큰"도 답변 길이 제한에 포함됨 | `max_completion_tokens=4000`, 서버가 거절하는 옵션은 빼고 자동 재시도 |
 | 12 | 테스트 실행 시 `ModuleNotFoundError: No module named 'httpx'` | 최신 SDK는 내부에서 `httpx2`를 씀 | `try: import httpx2 as httpx / except: import httpx`로 두 버전 모두 대응 |
 | 13 | 한글마다 노란 네모, F5 실행 안 됨 | VS Code **제한 모드(Restricted Mode)** | Manage → **Trust**(이 폴더 신뢰) |
-| 14 | (배포 후 겪은 문제를 여기에 추가) | | |
+| 14 | Vercel 배포 실패 `PYTHON_ENTRYPOINT_NOT_FOUND` | 맨 위의 `requirements.txt` 때문에 Vercel이 프로젝트를 "Python 앱"으로 자동 인식해서 `app.py` 같은 단일 진입 파일을 찾음 | `vercel.json`에 `"framework": null`(= Other)을 넣어 `api/` 폴더 방식으로 고정. Vercel이 제안한 `pyproject.toml` 진입점 방식은 모든 주소가 파이썬으로 가서 HTML이 안 열리므로 쓰지 않음 |
+| 15 | (배포 후 겪은 문제를 여기에 추가) | | |
 
 ### 13-3. 오류가 나면 이 순서로 봐요
 1. 브라우저 **F12 → Network** 탭 → `stylist` 요청의 **상태 코드**를 확인해요.
